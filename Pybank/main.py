@@ -84,18 +84,18 @@ with open(csvpath, newline="", encoding = "ISO-8859-1") as csvfile, open(csvpath
     
     #locate the dates associated with min and max revenue change #'s in dataframe
     date_max=d3_df.loc[d3_df['Sum'] == int(max_increase_revenue), 'Date']
-    date_min=d3_df.loc[d3_df['Sum'] == int(max_decrease_revenue), 'Date']
-    #change back to required date format
-    date_max = date_max.dt.strftime("%b-%y")
-    date_min = date_min.dt.strftime("%b-%y")
-
-print("Financial Analysis")
+    date_min=d3_df.loc[d3_df['Sum'] == int(max_decrease_revenue), 'Date']print("Financial Analysis")
 print("-----------------")
 print("Total Months: " + (str(months_count)))
 print("Total Revenue: " + "$"+"{:,}".format((Total_Revenue+Total_Revenue2)))
 print("Average Revenue Change: " + "$"+"{:,}".format(Average_Revenue_Change))
 print("Maximum Revenue Increase: " + (date_max.to_string(index=False)) + " " + "$"+"{:,}".format(int(max_increase_revenue)))
 print("Maximum Revenue Decrease: " + (date_min.to_string(index=False)) + " " + "$"+"{:,}".format(int(max_decrease_revenue)))
+    #change back to required date format
+    date_max = date_max.dt.strftime("%b-%y")
+    date_min = date_min.dt.strftime("%b-%y")
+
+
 
 
 #store in a variable
